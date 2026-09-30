@@ -3,9 +3,9 @@
 @section('content')
 <div class="main-container">
     <!-- Left Column (Videos) -->
-    <div style="flex: 0 0 35%; display: flex; flex-direction: column; gap: 10px; height: 100%;">
+    <div class="col-video">
         <!-- Remote Video -->
-        <div class="position-relative bg-secondary rounded" style="flex: 1; overflow: hidden; display: flex; justify-content: center; align-items: center; background-color: #444 !important;">
+        <div class="remote-video-container rounded">
             <video id="remoteVideo" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
             <div id="statusText" class="position-absolute text-white" style="z-index: 5; font-size: 1.2rem;">Menunggu koneksi...</div>
             <div class="position-absolute text-white-50" style="bottom: 10px; left: 15px; font-weight: bold;">
@@ -13,13 +13,13 @@
         </div>
         
         <!-- Local Video -->
-        <div class="position-relative rounded" style="flex: 1; overflow: hidden; background-color: #333;">
+        <div class="local-video-container rounded">
             <video id="localVideo" autoplay playsinline muted style="width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1);"></video>
         </div>
     </div>
 
     <!-- Right Column (Chat) -->
-    <div style="flex: 1; display: flex; flex-direction: column; background: #fff; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; height: 100%;">
+    <div class="col-chat">
         
         <!-- Chat Messages Area -->
         <div id="chatBox" style="flex: 1; overflow-y: auto; padding: 20px;  font-size: 15px;">
@@ -31,14 +31,6 @@
         <div style="padding: 10px 15px; border-top: 1px solid #eee;">
             
             
-            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-                <button class="btn btn-sm btn-light border" style="border-radius: 20px; font-weight: bold; font-size: 13px;">
-                    <span style="color: #007bff;">🌎</span> Smart Match ▾
-                </button>
-                <button class="btn btn-sm" style="background: #5864FF; color: white; border-radius: 20px; font-weight: bold; font-size: 13px;">
-                    ⚡ Get Premium
-                </button>
-            </div>
             <div style="display: flex; gap: 10px;">
                 <button id="btnStart" class="btn" style="background: #5864FF; color: white; border-radius: 8px; width: 80px; font-weight: bold; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.2;">
                     Start<br><span style="font-size: 11px; font-weight: normal;">Esc</span>

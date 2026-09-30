@@ -55,11 +55,83 @@
             color: #5864FF;
             margin: 0;
         }
+        
         .main-container {
-            height: calc(100vh - 60px); width: 100%;
+            height: calc(100vh - 60px);
+            width: 100%;
             display: flex;
             padding: 15px;
             gap: 15px;
+        }
+        .col-video {
+            flex: 7;
+            position: relative; /* For absolute positioning of local video */
+            height: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .col-chat {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .remote-video-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #444 !important;
+        }
+        .local-video-container {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 20%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background-color: #333;
+            border: 2px solid white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 10px;
+            }
+            .col-video {
+                flex: 0 0 45%;
+            }
+            .col-chat {
+                flex: 1;
+            }
+            .local-video-container {
+                width: 80px;
+                height: 112px;
+                bottom: 10px;
+                left: 10px;
+            }
+            .top-bar {
+                height: 50px;
+                padding: 0 10px;
+            }
+            .top-bar h1 {
+                font-size: 24px !important;
+            }
+            .main-container {
+                height: calc(100vh - 50px);
+            }
         }
     </style>
   </head>
