@@ -57,7 +57,7 @@
         }
         
         .main-container {
-            height: calc(100vh - 60px);
+            height: calc(100dvh - 60px);
             width: 100%;
             display: flex;
             padding: 15px;
@@ -111,7 +111,7 @@
                 gap: 10px;
             }
             .col-video {
-                flex: 0 0 45%;
+                flex: 0 0 60%;
             }
             .col-chat {
                 flex: 1;
@@ -130,7 +130,7 @@
                 font-size: 24px !important;
             }
             .main-container {
-                height: calc(100vh - 50px);
+                height: calc(100dvh - 50px);
             }
         }
     </style>
