@@ -22,7 +22,6 @@ class SignalSent implements ShouldBroadcastNow
 
     public function broadcastOn(): array
     {
-        // Broadcast ke channel chat (bukan private untuk simplifikasi prototipe)
         return [
             new Channel($this->channelName),
         ];

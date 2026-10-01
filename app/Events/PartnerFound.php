@@ -29,7 +29,6 @@ class PartnerFound implements ShouldBroadcastNow
 
     public function broadcastOn(): array
     {
-        // Broadcast secara private ke user yang sedang menunggu
         return [
             new Channel('user.' . $this->targetUserId),
         ];
