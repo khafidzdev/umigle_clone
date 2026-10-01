@@ -161,7 +161,6 @@
 
 
     <!-- ======== JS here ======== -->
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const localVideo = document.getElementById('localVideo');
@@ -261,7 +260,13 @@
                 },
                 body: JSON.stringify({ user_id: myUserId })
             })
-            .then(res => res.json())
+            .then(async res => {
+                if(!res.ok) {
+                    const text = await res.text();
+                    throw new Error("HTTP " + res.status + " - " + text.substring(0, 100));
+                }
+                return res.json();
+            })
             .then(data => {
                 if(data.status === 'matched') {
                     myRole = data.role;
@@ -274,6 +279,7 @@
             })
             .catch(err => {
                 console.error(err);
+                alert("DEBUG ERROR: " + err.message);
                 statusText.innerText = "Server error occurred.";
                 stopChat();
             });
