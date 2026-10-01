@@ -283,7 +283,7 @@
         
         btnNext.addEventListener('click', () => {
             stopChat(false);
-            setTimeout(startSearch, 50);
+            setTimeout(startSearch, 50); // Inisiator langsung mencari
         });
         
         btnStop.addEventListener('click', () => {
@@ -328,7 +328,7 @@
                 } else if(signal.type === 'leave') {
                     console.log("Partner left, auto searching...");
                     stopChat(true);
-                    setTimeout(startSearch, 50);
+                    setTimeout(startSearch, 1500); // Receiver menunggu 1.5 detik agar tidak crash bareng
                 }
             });
             
@@ -374,7 +374,7 @@
                 if(peerConnection && (peerConnection.iceConnectionState === 'disconnected' || peerConnection.iceConnectionState === 'failed')) {
                     console.log("Partner disconnected, auto searching...");
                     stopChat(true);
-                    setTimeout(startSearch, 50);
+                    setTimeout(startSearch, 800 + Math.random() * 1000); // Random jitter
                 }
             };
         }
