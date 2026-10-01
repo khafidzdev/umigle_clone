@@ -283,7 +283,7 @@
         
         btnNext.addEventListener('click', () => {
             stopChat(false);
-            setTimeout(startSearch, 500);
+            setTimeout(startSearch, 50);
         });
         
         btnStop.addEventListener('click', () => {
@@ -328,7 +328,7 @@
                 } else if(signal.type === 'leave') {
                     console.log("Partner left, auto searching...");
                     stopChat(true);
-                    setTimeout(startSearch, 500);
+                    setTimeout(startSearch, 50);
                 }
             });
             
@@ -338,7 +338,7 @@
                         .then(offer => peerConnection.setLocalDescription(offer))
                         .then(() => sendSignal(peerConnection.localDescription))
                         .catch(err => alert("Error saat membuat panggilan (Create Offer): " + err));
-                }, 300);
+                }, 100);
             }
             
             chatInput.disabled = false;
@@ -374,7 +374,7 @@
                 if(peerConnection && (peerConnection.iceConnectionState === 'disconnected' || peerConnection.iceConnectionState === 'failed')) {
                     console.log("Partner disconnected, auto searching...");
                     stopChat(true);
-                    setTimeout(startSearch, 500);
+                    setTimeout(startSearch, 50);
                 }
             };
         }
