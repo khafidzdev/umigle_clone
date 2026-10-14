@@ -18,13 +18,16 @@ class PartnerFound implements ShouldBroadcastNow
     public $channelName;
     public $role;
     public $partnerId;
+    public $country; // 1. Tambahkan properti country di sini
 
-    public function __construct($targetUserId, $channelName, $role, $partnerId)
+    // 2. Tambahkan parameter $country pada constructor
+    public function __construct($targetUserId, $channelName, $role, $partnerId, $country = 'Indonesia')
     {
         $this->targetUserId = $targetUserId;
         $this->channelName = $channelName;
         $this->role = $role;
         $this->partnerId = $partnerId;
+        $this->country = $country; // 3. Masukkan ke dalam instance
     }
 
     public function broadcastOn(): array
@@ -39,4 +42,3 @@ class PartnerFound implements ShouldBroadcastNow
         return 'PartnerFound';
     }
 }
-
